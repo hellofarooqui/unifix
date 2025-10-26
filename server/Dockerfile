@@ -1,11 +1,20 @@
-FROM node:20
+#user Node.js base image
+FROM node:20-alpine
 
-WORKDIR /app 
+#set working directory
+WORKDIR /app
 
-COPY package*.json
+#copy package files
+COPY package*.json ./
+
+#install dependencies
 RUN npm install
+
+#copy source code
 COPY . .
 
-EXPOSE 5000
+#expose backend port
+EXPOSE 3000
 
-CMD ["node", "server.js"]
+#run the app
+CMD ["npm","start"]

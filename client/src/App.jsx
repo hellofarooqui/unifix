@@ -26,6 +26,7 @@ import NewVendor from "./pages/Vendors/NewVendor";
 import SearchPage from "./pages/Search/SearchPage";
 import Profile from "./pages/Auth/Profile";
 import NewProject from "./pages/Settings/NewProject";
+import PageNotFound from "./pages/PageNotFound";
 
 // Example page components
 
@@ -77,6 +78,7 @@ function App() {
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<PageNotFound/>}/>
       </Routes>
     </BrowserRouter>
   );

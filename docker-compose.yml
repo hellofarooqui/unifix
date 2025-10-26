@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+  frontend:
+    build: ./client
+    container_name: it-tools-frontend
+    ports:
+      - "5000:80"
+    depends_on:
+      - backend
+    networks:
+      - it-tools-network
+    
+  backend:
+    build: ./server
+    container_name: it-tools-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - MONGO_URI=mongodb://mongo:27017/it-tools
+      - FRONTEND_URL=http://localhost:5173
+    depends_on:
+      - mongo
+    networks:
+      - it-tools-network
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7
+    container_name: it-tools-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - it-tools-network
+
+networks:
+  it-tools-network:
+
+volumes:
+  mongo-data:
