@@ -4,9 +4,7 @@ import Internet from "../../pages/Internet/Internet";
 import MainInternetCard from "./MainInternetCard";
 import { Link } from "react-router-dom";
 
-const ListInternetConnections = ({
-  connections,
-}) => {
+const ListInternetConnections = ({ connections }) => {
   return (
     <div>
       <div className="flex justify-between items-center">

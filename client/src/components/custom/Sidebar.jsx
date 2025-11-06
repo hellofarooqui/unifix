@@ -4,14 +4,19 @@ import { cn } from './../../lib/utils';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
+import { PiCertificate, PiDevices } from "react-icons/pi";
+import { TbContract } from "react-icons/tb";
+import { RxDashboard } from "react-icons/rx";
 
 const sidebarItems = [
-  { icon: Home, title: "Dashboard", path: "/" },
+  { icon: RxDashboard, title: "Dashboard", path: "/" },
   { icon: Ticket, title: "Support Tickets", path: "/support" },
   { icon: ArchiveRestore, title: "RMA", path: "/rma" },
-  { icon: PcCase, title: "Devices", path: "/devices" },
+  { icon: PiDevices, title: "Devices", path: "/devices" },
   { icon: Globe, title: "Internet", path: "/internet" },
   { icon: Settings, title: "Settings", path: "/settings" },
+  { icon: TbContract, title: "Cisco Assets", path: "/cisco-assets" },
+  { icon: PiCertificate, title: "SSL Certificates", path: "/ssl-certificates" },
 ];
 
 export function Sidebar() {

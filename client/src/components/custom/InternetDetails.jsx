@@ -1,10 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
-const InternetDetails = ({
-  connection,
-  onClose,
-}) => {
+const InternetDetails = ({ connection, onClose }) => {
   const navigate = useNavigate();
   return (
     <div className="absolute bg-gray-900/50 z-20 top-0 left-0 w-screen h-screen flex justify-center items-center">
@@ -24,37 +21,29 @@ const InternetDetails = ({
 
         <div className="border my-2"></div>
         <div className="flex gap-x-10  items-center ">
-          
-            <div className="">
-              <p className="font-semibold">IP Address</p>
-              <p>{connection.ipAddress || "-NA-"}</p>
-            </div>
-          
+          <div className="">
+            <p className="font-semibold">IP Address</p>
+            <p>{connection.ipAddress || "-NA-"}</p>
+          </div>
 
+          <div>
+            <p className="font-semibold">Subnet Mask</p>
+            <p>{connection.subnetMask || "-NA-"}</p>
+          </div>
 
-            <div>
-              <p className="font-semibold">Subnet Mask</p>
-              <p>{connection.subnetMask || "-NA-"}</p>
-            </div>
-          
-
-
-            <div>
-              <p className="font-semibold">Gateway</p>
-              <p>{connection.gateway || "-NA-"}</p>
-            </div>
-          
+          <div>
+            <p className="font-semibold">Gateway</p>
+            <p>{connection.gateway || "-NA-"}</p>
+          </div>
         </div>
 
         <div className="border my-2"></div>
 
         <div className="flex gap-x-10  items-center mt-2">
-
-            <div>
-              <p className="font-semibold">Account Number</p>
-              <p>{connection.accountNumber || "-NA-"}</p>
-            </div>
-          
+          <div>
+            <p className="font-semibold">Account Number</p>
+            <p>{connection.accountNumber || "-NA-"}</p>
+          </div>
 
           {connection.accountName && (
             <div className="col-span-2">
@@ -71,12 +60,10 @@ const InternetDetails = ({
           </div>
         )}
         <div className="flex gap-x-10  items-center ">
-
-            <div>
-              <p className="font-semibold">Connection Type</p>
-              <p>{connection.connectionType || "-NA-"}</p>
-            </div>
-          
+          <div>
+            <p className="font-semibold">Connection Type</p>
+            <p>{connection.connectionType || "-NA-"}</p>
+          </div>
 
           {connection.provider && (
             <div className="col-span-3">
@@ -89,37 +76,29 @@ const InternetDetails = ({
         <div className="border my-2"></div>
 
         <div className="flex gap-x-10  items-center ">
+          <div>
+            <p className="font-semibold">Username</p>
+            <p>{connection.accountUsername || "-NA-"}</p>
+          </div>
 
-            <div>
-              <p className="font-semibold">Username</p>
-              <p>{connection.accountUsername || "-NA-"}</p>
-            </div>
-          
-
-        
-            <div className="col-span-2">
-              <p className="font-semibold">Password</p>
-              <p>{connection.accountPassword || "-NA-"}</p>
-            </div>
-          
+          <div className="col-span-2">
+            <p className="font-semibold">Password</p>
+            <p>{connection.accountPassword || "-NA-"}</p>
+          </div>
         </div>
 
         <div className="border my-2"></div>
 
         <div className="flex gap-x-10  items-center">
+          <div>
+            <p className="font-semibold">Support Contact</p>
+            <p>{connection.supportContact || "-NA-"}</p>
+          </div>
 
-            <div>
-              <p className="font-semibold">Support Contact</p>
-              <p>{connection.supportContact || "-NA-"}</p>
-            </div>
-          
-
-
-            <div>
-              <p className="font-semibold">Support Phone</p>
-              <p>{connection.supportPhone || "-NA-"}</p>
-            </div>
-          
+          <div>
+            <p className="font-semibold">Support Phone</p>
+            <p>{connection.supportPhone || "-NA-"}</p>
+          </div>
         </div>
         {connection.supportEmail && (
           <div>

@@ -8,14 +8,13 @@ import { useAuthContext } from "../../context/AuthContext";
 import dateformat from "dateformat";
 import { useHeader } from "../../context/HeaderContext";
 
-
 const defaultComment = {
   user: "",
   comment: "",
 };
 
 const SupportTicketDetails = () => {
-  const {header,setHeader} = useHeader()
+  const { header, setHeader } = useHeader();
   const { ticketNumber } = useParams();
   const { user } = useAuthContext();
   const navigate = useNavigate();
@@ -29,7 +28,7 @@ const SupportTicketDetails = () => {
   const [error, setError] = useState("");
   const [editing, setEditing] = useState(false);
   const [statusMenu, setStatusMenu] = useState(false);
-  const statusMenuRef = React.useRef<HTMLDivElement>(null);
+  const statusMenuRef = React.useRef < HTMLDivElement > null;
   const [newStatus, setNewStatus] = useState("");
   const [showNewCommentBox, setShowNewCommentBox] = useState(false);
 
@@ -53,9 +52,9 @@ const SupportTicketDetails = () => {
     }
   };
 
-  useEffect(()=>{
-    setHeader({...header,title:"Ticket Details"})
-  },[])
+  useEffect(() => {
+    setHeader({ ...header, title: "Ticket Details" });
+  }, []);
 
   useEffect(() => {
     fetchTicketDetails();
@@ -120,7 +119,10 @@ const SupportTicketDetails = () => {
       //setNewComment({ ...newComment, user: user._id });
       console.log("User id", user._id);
       //setNewComment({...newComment, user: user._id})
-      const response = await addCommentToSupportTicket(ticket?._id, {...newComment, user: user._id});
+      const response = await addCommentToSupportTicket(ticket?._id, {
+        ...newComment,
+        user: user._id,
+      });
       if (response) {
         // console.log(response);
         // const updatedComments = [...ticket.comments, {user:user, ...newComment}];
@@ -264,9 +266,11 @@ const SupportTicketDetails = () => {
                 No comments
               </p>
             ) : (
-              ticket.comments.map((comment) => (
-                <CommentCard key={comment._id} comment={comment} />
-              )).reverse()
+              ticket.comments
+                .map((comment) => (
+                  <CommentCard key={comment._id} comment={comment} />
+                ))
+                .reverse()
             )}
           </div>
         </div>

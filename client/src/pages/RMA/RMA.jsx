@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { Loader2 } from "lucide-react";
 
-
-
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui/button";
 import useRMA from "../../hooks/useRMA";
@@ -11,7 +9,7 @@ import RMACard from "../../components/custom/RMACard";
 import { useHeader } from "../../context/HeaderContext";
 
 const RMA = () => {
-  const {header,setHeader} = useHeader()
+  const { header, setHeader } = useHeader();
   const navigate = useNavigate();
   const [allRMA, setAllRMA] = React.useState([]);
   const [filteredRMA, setFilteredRMA] = useState([]);
@@ -32,9 +30,9 @@ const RMA = () => {
   //   );
   // }, [filter]);
 
-  useEffect(()=>{
-    setHeader({...header, title: "RMA"})
-  },[])
+  useEffect(() => {
+    setHeader({ ...header, title: "RMA" });
+  }, []);
 
   useEffect(() => {
     const fetchRMA = async () => {
@@ -42,7 +40,7 @@ const RMA = () => {
       if (response) {
         //console.log(response)
         const filteredRMA = response.filter(
-          (rma) => (rma.status != "Completed" && rma.status != "Rejected")
+          (rma) => rma.status != "Completed" && rma.status != "Rejected"
         );
         //const filtered = allRMA.filter(rma => rma.status == filter)
         setAllRMA(response);
@@ -89,8 +87,6 @@ const RMA = () => {
 
   return (
     <div className="">
-      
-
       <div className="p-8">
         <div className="flex bg-white rounded-md overflow-hidden shadow-md p-4 w-full justify-between items-center">
           <div className="flex  bg-gray-100 rounded-sm overflow-hidden p-1">

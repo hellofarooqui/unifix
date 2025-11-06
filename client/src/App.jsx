@@ -27,6 +27,8 @@ import SearchPage from "./pages/Search/SearchPage";
 import Profile from "./pages/Auth/Profile";
 import NewProject from "./pages/Settings/NewProject";
 import PageNotFound from "./pages/PageNotFound";
+import CiscoAssetsHome from "./pages/CiscoAssets/CiscoAssetsHome";
+import NewAsset from "./pages/CiscoAssets/NewAsset";
 
 // Example page components
 
@@ -74,11 +76,13 @@ function App() {
             <Route path="support/:ticketNumber/edit" element={<EditTicket />} />
 
             <Route path="profile" element={<Profile />} />
+            <Route path="cisco-assets" element={<CiscoAssetsHome />} />
+            <Route path="cisco-assets/new" element={<NewAsset />} />
           </Route>
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="*" element={<PageNotFound/>}/>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );

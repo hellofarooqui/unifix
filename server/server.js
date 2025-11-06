@@ -11,6 +11,7 @@ import wanRouter from './routes/wanRouter.js';
 import vendorRouter from './routes/vendorRouter.js';
 import searchRouter from './routes/searchRouter.js';
 import projectRouter from "./routes/projectRouter.js";
+import ciscoRouter from './routes/ciscoRouter.js';
 
 dotenv.config();
 
@@ -58,6 +59,7 @@ app.use('/api/wan', wanRouter)
 app.use('/api/vendor', vendorRouter);
 app.use('/api/search', searchRouter);
 app.use('/api/projects', projectRouter)
+app.use('/api/cisco', ciscoRouter)
 
 
 app.get('/', (req, res) => {

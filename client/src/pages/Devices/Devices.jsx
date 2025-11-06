@@ -8,17 +8,24 @@ import {
 } from "../../components/ui/table";
 
 import { Button } from "../../components/ui/button";
-import { FilePenLine, FileText, FunnelPlus, Loader2, Plus, Rows3, Trash2 } from "lucide-react";
+import {
+  FilePenLine,
+  FileText,
+  FunnelPlus,
+  Loader2,
+  Plus,
+  Rows3,
+  Trash2,
+} from "lucide-react";
 import useDevices from "../../hooks/useDevices.jsx";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CustomTooltip from "../../components/custom/CustomToolTip";
 import { useHeader } from "../../context/HeaderContext.jsx";
 
-import HeadingBar from "./../../components/custom/HeadingBar.jsx";
+import HeadingBar from "../../components/custom/HeadingBar.jsx";
 const storageLocation =
   "/home/farooqui/development/it-tools/server/uploads/devices";
-
 
 const filters = [
   { name: "ALL", value: "" },
@@ -176,19 +183,21 @@ const Devices = () => {
               <TableHead className="w-[10%] text-white pl-4">S.No</TableHead>
               <TableHead className="w-[10%] text-white">Device</TableHead>
               <TableHead className="w-[40%] text-white">Name</TableHead>
-              <TableHead className="w-[15%] text-white">Serial Number</TableHead>
+              <TableHead className="w-[15%] text-white">
+                Serial Number
+              </TableHead>
               <TableHead className="w-[10%] text-white">Status</TableHead>
               <TableHead className="w-[15%] text-white">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {devices.devices.map((device,index) => (
+            {devices.devices.map((device, index) => (
               <TableRow
                 key={device._id}
                 className="h-16 bg-gray-50 hover:bg-gray-100 border"
               >
                 <TableCell className="text-gray-700 pl-6">
-                  {(pagination.currentPage -1 )*10 + index+1}
+                  {(pagination.currentPage - 1) * 10 + index + 1}
                 </TableCell>
                 <TableCell className="text-gray-700">
                   {device.deviceType.name}

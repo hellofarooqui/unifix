@@ -16,13 +16,12 @@ import { FilePenLine, FileText, Trash2 } from "lucide-react";
 import SearchMain from "../../components/custom/SearchMain";
 import { useHeader } from "../../context/HeaderContext";
 
-
 const ListTickets = () => {
-  const {header,setHeader} = useHeader()
+  const { header, setHeader } = useHeader();
   const [tickets, setTickets] = React.useState([]);
-  const [filteredTickets,setFilteredTickets] = useState([])
+  const [filteredTickets, setFilteredTickets] = useState([]);
   const [loading, setLoading] = React.useState(true);
-  const [filter,setFilter] = useState("Open")
+  const [filter, setFilter] = useState("Open");
 
   const navigate = useNavigate();
 
@@ -37,7 +36,9 @@ const ListTickets = () => {
       try {
         const response = await getAllSupportTicketsList();
         setTickets(response);
-        setFilteredTickets(response.filter(ticket=>ticket.status == "Open"))
+        setFilteredTickets(
+          response.filter((ticket) => ticket.status == "Open")
+        );
       } catch (error) {
         console.error("Error fetching support tickets:", error);
       } finally {
@@ -48,21 +49,19 @@ const ListTickets = () => {
     fetchTickets();
   }, []);
 
-
   const handleChangeFilter = (newFilter) => {
-    setFilter(newFilter)
-    setFilteredTickets(tickets.filter(ticket => ticket.status == newFilter))
-  }
+    setFilter(newFilter);
+    setFilteredTickets(tickets.filter((ticket) => ticket.status == newFilter));
+  };
 
   const handleEditTicket = (ticketNumber) => {
-    console.log("Edit clicked")
-    navigate(`${ticketNumber}/edit`)
-  }
+    console.log("Edit clicked");
+    navigate(`${ticketNumber}/edit`);
+  };
 
   return (
     <div>
       <div>
-        
         <div className="p-8 ">
           <div className="flex bg-white rounded-t-md overflow-hidden shadow-md p-4 w-full justify-between items-center">
             <div className="flex  bg-gray-100 rounded-sm overflow-hidden p-1">
@@ -96,11 +95,7 @@ const ListTickets = () => {
               </button>
             </div>
             <div>
-              <Button
-                
-                onClick={() => navigate("new")}
-                className=""
-              >
+              <Button onClick={() => navigate("new")} className="">
                 New Ticket
               </Button>
             </div>

@@ -9,13 +9,13 @@ import { useHeader } from "../../context/HeaderContext";
 import ListProjects from "../../components/custom/ListProjects";
 
 const Settings = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const {header,setHeader} = useHeader()
+  const { header, setHeader } = useHeader();
 
-  useEffect(()=>{
-    setHeader({...header, title:"Settings"})
-  },[])
+  useEffect(() => {
+    setHeader({ ...header, title: "Settings" });
+  }, []);
 
   return (
     <div className="">
